@@ -28,7 +28,7 @@ The package includes the following static web assets:
 - `wwwroot/auto-complete.css`
 - `wwwroot/auto-complete.js`
 
-These will be available at runtime via: `_content/AutoCompleteComponent/lib/AutoComplete/`
+These will be available at runtime via: `_content/AutoCompleteComponent/`
 
 ## Quick Commands
 
@@ -81,10 +81,10 @@ They need to reference the assets in their layout:
 
 ```html
 <link
-  href="_content/AutoCompleteComponent/lib/AutoComplete/auto-complete.css"
+  href="_content/AutoCompleteComponent/auto-complete.css"
   rel="stylesheet"
 />
-<script src="_content/AutoCompleteComponent/lib/AutoComplete/auto-complete.js"></script>
+<script src="_content/AutoCompleteComponent/auto-complete.js"></script>
 ```
 
 And add the namespace to `_Imports.razor`:

@@ -1,0 +1,52 @@
+@namespace AutoComplete
+@typeparam TId
+@typeparam TData
+@typeparam TValue
+@code {
+  [Parameter]
+  public StaticAutoCompleteBase<TValue, TId, TData> Instance { get; set; }
+}
+
+<div @ref="@Instance.DropdownWrapperRef" class="autocomplete-dropdown-wrapper d-flex flex-column">
+  <div class="autocomplete-dropdown d-flex flex-column p-2 border bg-body rounded-2"
+    @onmousemove="@Instance.OnMouseMoveOnDropdown" @onmouseleave="@Instance.OnMouseLeaveDropdown">
+
+    @* input de busca de itens *@
+    <input @ref="@Instance.SearchInputRef" @oninput="@Instance.OnSearchInputChangedAsync" type="text"
+      class="form-control" placeholder="@Instance.SearchInputPlaceholder"
+      @onfocus="@(() => Instance.IsSearchInputOnFocus = true)" @onblur="@Instance.OnBlurSearchInput"
+      @onkeydown="@Instance.OnKeyDownSearchInput" />
+
+    @{
+      var currentAvailableOptions = Instance.RenderedOptions;
+    }
+
+    @if (currentAvailableOptions.Any())
+    {
+      @* resultados da busca *@
+      <ul @ref="@Instance.DropdownOptionsListRef"
+        class="autocomplete-dropdown-items flex-grow-1 overflow-y-auto mt-3 list-unstyled">
+        @foreach (var item in currentAvailableOptions)
+        {
+          <li class="autocomplete-dropdown-item p-2" role="button" @onclick="@((_) => Instance.OnSelectOptionAsync(item))">
+            @if (Instance.DropdownOptionTemplate != null)
+            {
+              @Instance.DropdownOptionTemplate(item)
+            }
+            else
+            {
+              @item.GetDropdownLabel()
+            }
+          </li>
+        }
+      </ul>
+    }
+    else
+    {
+      @* caso não tenha resultados *@
+      <div class="text-muted text-center mb-2 mt-3">
+        <small>@Instance.NoResultsMessage</small>
+      </div>
+    }
+  </div>
+</div>

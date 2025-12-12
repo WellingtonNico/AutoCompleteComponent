@@ -1,0 +1,63 @@
+@namespace AutoComplete
+@typeparam TId
+@typeparam TData
+@inherits AsyncAutoCompleteBase<List<AutoCompleteOption<TId, TData>>, TId, TData>
+
+<div @ref="@ContainerRef"
+  class="form-select autocomplete-container @(CssClass) @(Disabled ? "disabled" : "") @(IsDropdownVisible ? "focused" : "") @(ShouldOpenUpward ? "open-upward" : "open-downward")"
+  disabled="@Disabled">
+  <div class="d-flex align-items-center h-100" @onclick="@ShowDropdownAsync">
+
+    @* se tiver um valor selecionado exibe e também um botão de limpar *@
+    @if (Value?.Any() == true)
+    {
+      <div class="d-flex flex-wrap autocomplete-selected-items align-items-center gap-1">
+
+        @* botão de limpar tudo *@
+        <span class="text-danger autocomplete-clear-button pe-2" role="button" @onclick:stopPropagation="true"
+          @onclick="@OnClickClearButton">&#x274C;</span>
+
+        @if (Value != null)
+        {
+          foreach (var selectedOption in Value)
+          {
+            @if (SelectedItemTemplate != null)
+            {
+              @SelectedItemTemplate(new(selectedOption, async () => await OnClickRemoveOption(selectedOption)))
+            }
+            else
+            {
+              <div class="autocomplete-selected-item border rounded p-1 text-wrap d-flex align-items-center gap-1">
+                @* botão de remover opção selecionada *@
+                <span class="autocomplete-selected-item-remove-button" role="button" @onclick:stopPropagation="true"
+                  @onclick="() => OnClickRemoveOption(selectedOption)">&#x274C;</span>
+                <span>
+                  @selectedOption.GetSelectedLabel()
+                </span>
+              </div>
+            }
+          }
+        }
+      </div>
+    }
+    else
+    {
+      @* placeholder *@
+      <div class="text-truncate text-muted d-block">
+        @Placeholder
+      </div>
+    }
+
+    @* caixa de texto reponsável por abrir a pesquisa, visível somente quando o dropdown não estiver aberto *@
+    @if (!IsDropdownVisible)
+    {
+      <input type="text" class="autocomplete-toggle-input" @onfocus="@ShowDropdownAsync" />
+    }
+  </div>
+
+  @* caso estiver em foco, deixa o input de busca visível *@
+  @if (IsDropdownVisible)
+  {
+    <AsyncDropdown Instance="@this" />
+  }
+</div>

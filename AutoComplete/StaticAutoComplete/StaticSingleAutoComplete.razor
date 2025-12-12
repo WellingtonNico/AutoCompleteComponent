@@ -1,0 +1,50 @@
+@namespace AutoComplete
+@typeparam TId
+@typeparam TData
+@inherits StaticAutoCompleteBase<AutoCompleteOption<TId, TData>, TId, TData>
+
+<div @ref="@ContainerRef"
+  class="form-select @(CssClass) autocomplete-container @(Disabled ? "disabled" : "") @(IsDropdownVisible ? "focused" : "") @(ShouldOpenUpward ? "open-upward" : "open-downward")"
+  disabled="@Disabled">
+  <div class="d-flex align-items-center h-100 gap-2" @onclick="@ShowDropdown">
+
+    @* se tiver um valor selecionado exibe e também um botão de limpar *@
+    @if (Value != null)
+    {
+      @* botão de limpar *@
+      <span class="text-danger autocomplete-clear-button" role="button" @onclick:stopPropagation="true"
+        @onclick="@OnClickClearButton">&#x274C;</span>
+
+      @* display do valor selecionado *@
+      @if (SelectedItemTemplate != null)
+      {
+        @SelectedItemTemplate(Value)
+      }
+      else
+      {
+        <div class="selected-item text-truncate d-block">
+          @Value.GetSelectedLabel()
+        </div>
+      }
+    }
+    else
+    {
+      @* placeholder *@
+      <div class="text-truncate text-muted d-block">
+        @Placeholder
+      </div>
+    }
+
+    @* caixa de texto reponsável por abrir a pesquisa, visível somente quando o dropdown não estiver aberto *@
+    @if (!IsDropdownVisible)
+    {
+      <input type="text" class="autocomplete-toggle-input" @onfocus="@ShowDropdown" />
+    }
+  </div>
+
+  @* caso estiver em foco, deixa o input de busca visível *@
+  @if (IsDropdownVisible)
+  {
+    <StaticDropdown Instance="@this" />
+  }
+</div>

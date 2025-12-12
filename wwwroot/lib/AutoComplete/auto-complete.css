@@ -1,0 +1,100 @@
+.autocomplete-container {
+  cursor: pointer;
+  position: relative !important;
+}
+
+.autocomplete-container[disabled] {
+  cursor: not-allowed;
+  background-color: var(--bs-secondary-bg);
+}
+
+/* remove o estilo original da caixa que serve para abrir a pesquisa */
+.autocomplete-toggle-input {
+  opacity: 0 !important;
+  width: 1px;
+  height: 2px;
+}
+
+/* ajusta o posicionamento do wrapper quando aberto */
+.autocomplete-dropdown-wrapper {
+  position: absolute !important;
+  z-index: 99999;
+  width: calc(100% + 2px) !important;
+  height: 300px !important;
+  left: -1px;
+  right: 0;
+}
+
+/* limita o dropdown */
+.autocomplete-dropdown {
+  max-height: 100%;
+}
+
+.autocomplete-dropdown-item {
+  min-height: 35px;
+}
+
+.autocomplete-dropdown-item:hover {
+  background-color: rgba(var(--bs-secondary-rgb), 0.2) !important;
+  color: var(--bs-body-color);
+}
+
+/* Estilos para quando o dropdown está aberto para baixo */
+.autocomplete-container.focused.open-downward {
+  border-bottom: transparent;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* ajusta o posicionamento do wrapper quando aberto em baixo */
+.autocomplete-container.focused.open-downward .autocomplete-dropdown-wrapper {
+  top: 100%;
+  justify-content: start /* joga o conteúdo do wrapper pra cima */;
+}
+
+.autocomplete-container.focused.open-downward .autocomplete-dropdown {
+  border-top: transparent !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+/* Estilos para quando o dropdown está aberto para cima */
+.autocomplete-container.focused.open-upward {
+  border-top: transparent;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.autocomplete-container.focused.open-upward .autocomplete-dropdown {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-bottom: transparent !important;
+}
+
+/* ajusta o posicionamento do wrapper quando aberto em cima */
+.autocomplete-container.focused.open-upward .autocomplete-dropdown-wrapper {
+  top: -300px;
+  justify-content: end /* joga o conteúdo do wrapper pra baixo */;
+}
+
+/* Foi removido pois estava sempre começando como válido e ficava feio */
+/* .form-select.valid .autocomplete-dropdown {
+  border-color: var(--bs-success) !important;
+} */
+
+.form-select.invalid .autocomplete-dropdown,
+.form-select.is-invalid .autocomplete-dropdown {
+  border-color: var(--bs-form-invalid-color) !important;
+}
+
+.autocomplete-clear-button {
+  font-size: 0.6rem;
+}
+
+.autocomplete-selected-item-remove-button {
+  cursor: pointer;
+}
+
+.autocomplete-selected-item {
+  font-size: 63%; /* best proportion to match default bootstrap form-select height */
+}

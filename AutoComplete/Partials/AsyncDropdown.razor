@@ -1,0 +1,76 @@
+@namespace AutoComplete
+@typeparam TId
+@typeparam TData
+@typeparam TValue
+@code {
+  [Parameter]
+  public AsyncAutoCompleteBase<TValue, TId, TData> Instance { get; set; }
+}
+
+<div class="autocomplete-dropdown-wrapper d-flex flex-column">
+  <div class="autocomplete-dropdown d-flex flex-column p-2 border bg-body rounded-2"
+    @onmousemove="@Instance.OnMouseMoveOnDropdown" @onmouseleave="@Instance.OnMouseLeaveDropdown">
+
+    @* input de busca de itens *@
+    <input @ref="@Instance.SearchInputRef" type="text" class="form-control"
+      placeholder="@Instance.SearchInputPlaceholder" @onfocus="@(() => Instance.IsSearchInputOnFocus = true)"
+      @onblur="@Instance.OnBlurSearchInput" @onkeydown="@Instance.OnKeyDownSearchInput"
+      @oninput="@Instance.OnSearchInputChangedAsync" />
+
+    @if (Instance.IsLoading)
+    {
+      @* indicador de conteúdo carregando mais *@
+      <div class="text-muted mb-2 mt-3 text-center">
+        <small>@Instance.LoadingMessage</small>
+      </div>
+    }
+
+    @{
+      var availableOptions = Instance.RenderedOptions;
+    }
+
+    @if (availableOptions.Any())
+    {
+      @* resultados da busca *@
+      <ul @ref="@Instance.DropdownOptionsListRef" @onscroll="@Instance.OnOptionsListScrollAsync"
+        class="autocomplete-dropdown-items flex-grow-1 overflow-y-auto mt-3 list-unstyled">
+        @foreach (var item in availableOptions)
+        {
+          <li class="autocomplete-dropdown-item p-2" role="button"
+            @onclick="@(async () => await Instance.OnSelectOptionAsync(item))">
+            @if (Instance.DropdownOptionTemplate != null)
+            {
+              @Instance.DropdownOptionTemplate(item)
+            }
+            else
+            {
+              @item.GetDropdownLabel()
+            }
+          </li>
+        }
+      </ul>
+    }
+    else if (!Instance.WasSearchTriggered)
+    {
+      @* mensagem inicial antes de começar a buscar *@
+      <div class="text-muted text-center mb-2 mt-3">
+        <small>@Instance.TriggerSearchMessage</small>
+      </div>
+    }
+    else if (!Instance.IsLoading && Instance.WasSearchTriggered)
+    {
+      @* caso não tenha resultados *@
+      <div class="text-muted text-center mb-2 mt-3">
+        <small>@Instance.NoResultsMessage</small>
+      </div>
+    }
+
+    @if (Instance.IsLoadingMore)
+    {
+      @* indicador de conteúdo carregando mais *@
+      <div class="text-muted text-center mb-2 mt-3">
+        <small>@Instance.LoadingMoreMessage</small>
+      </div>
+    }
+  </div>
+</div>

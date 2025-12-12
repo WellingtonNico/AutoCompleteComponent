@@ -22,9 +22,6 @@ Install-Package AutoCompleteComponent
 
 ```razor
 @using AutoComplete
-@using AutoComplete.AsyncAutoComplete
-@using AutoComplete.StaticAutoComplete
-@using AutoComplete.Models
 ```
 
 2. Reference the CSS and JS files in your `App.razor` or `_Layout.cshtml`:
@@ -40,7 +37,6 @@ Install-Package AutoCompleteComponent
 ### Manual Installation (Alternative)
 
 - Copy the `AutoComplete` folder to wherever you want in your project since it is together with your other blazor components;
-- (OPTIONAL) Change the namespace according to your needs, you can make a full replace by switching `namespace AutoComplete` to whatever you need;
 - Copy the `.css` and `.js` files to your `wwwroot` folder (you can use the same structure from here if you want) and reference them in your `Layout`.
 
 ## How to use?
@@ -181,59 +177,3 @@ Ex:
     PageSize="20"
 />
 ```
-
----
-
-## Building and Publishing (For Maintainers)
-
-### Building the NuGet Package
-
-To build the NuGet package locally:
-
-```bash
-dotnet build
-dotnet pack -c Release
-```
-
-The package will be created in `bin/Release/AutoCompleteComponent.{version}.nupkg`
-
-### Testing the Package Locally
-
-Before publishing, you can test the package locally:
-
-1. Create a local NuGet source:
-
-```bash
-# Add a local source (only once)
-dotnet nuget add source /Users/wellington/projetos/csharp/AutoCompleteComponent/bin/Release -n "Local"
-```
-
-2. In your test project, add the package:
-
-```bash
-dotnet add package AutoCompleteComponent --version 1.0.0 --source "Local"
-```
-
-### Publishing to NuGet.org
-
-1. Get your API key from [NuGet.org](https://www.nuget.org/account/apikeys)
-
-2. Push the package:
-
-```bash
-dotnet nuget push bin/Release/AutoCompleteComponent.1.0.0.nupkg --api-key YOUR_API_KEY --source https://api.nuget.org/v3/index.json
-```
-
-### Version Management
-
-Update the version in `AutoCompleteComponent.csproj`:
-
-```xml
-<Version>1.0.1</Version>
-```
-
-Follow [Semantic Versioning](https://semver.org/):
-
-- **Major**: Breaking changes
-- **Minor**: New features (backward compatible)
-- **Patch**: Bug fixes

@@ -28,10 +28,10 @@ Install-Package AutoCompleteComponent
 
 ```html
 <link
-  href="_content/AutoCompleteComponent/lib/AutoComplete/auto-complete.css"
+  href="_content/AutoCompleteComponent/auto-complete.css"
   rel="stylesheet"
 />
-<script src="_content/AutoCompleteComponent/lib/AutoComplete/auto-complete.js"></script>
+<script src="_content/AutoCompleteComponent/auto-complete.js"></script>
 ```
 
 ### Manual Installation (Alternative)

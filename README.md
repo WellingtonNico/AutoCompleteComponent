@@ -4,7 +4,7 @@ It supports async and static search with single and multiple options with pagina
 
 ## How to install?
 
-- Copy the `AutoComplete` folder to wherever you want in your project;
+- Copy the `AutoComplete` folder to wherever you want in your project since it is together with your other blazor components;
 - Copy the `.css` and `.js` files to your `wwwroot` folder(you can use the same structure from here if you want) and reference them in your `Layout`.
 
 ## How to use?

@@ -44,7 +44,8 @@ public class MyFormModel{
 ### Async way:
 
 By using `async` you will be able to query your data from external APIs or your repositories accessing you database directly, you can also enable pagination if you want.
-All you need is to have an `async` function that receives a `AutoCompleteSearchArgs` instance and returns `List<AutoCompleteOption<TKey, TData>>`
+All you need is to have an `async` function that receives a `AutoCompleteSearchArgs` instance and returns `List<AutoCompleteOption<TKey, TData>>`.
+The pagination is enabled by default, you need to handle it in the function that loads the options, if yout stop returning results the pagination will stop, so keep returning data to keep the user scrolling down.
 
 ```cs
 <AsyncSingleAutoComplete
@@ -121,4 +122,27 @@ Ex:
 
 #### Some points
 
-- It is still not fully optional, so the load messages for example are in my language PT-BR, so for now you will need to search and replace.
+- As my language is PT-BR I wrote the messages for the component in PT-BR but you can customize using some parameters. Ex:
+
+```cs
+<AsyncSingleAutoComplete
+    Placeholder="Click to search..."
+    SearchInputPlaceholder="Type to search..."
+    NoResultsMessage="No results found."
+    TriggerSearchMessage="Start typing to search"
+    LoadingMessage="Loading..."
+    LoadingMoreMessage="Loading next page..."
+/>
+```
+
+- There are also some functional arguments. Ex:
+
+```cs
+<AsyncSingleAutoComplete
+    CloseDropdownOnSelect="false"
+    MinLength="3"
+    AutoLoad="true"
+    Disabled="false"
+    PageSize="20"
+/>
+```

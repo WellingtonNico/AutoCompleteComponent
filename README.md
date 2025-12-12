@@ -29,7 +29,15 @@ public class MyFormModel{
     public List<AutoCompleteOption<int,int>> MultipleOptionField {get;set;}
 
     // here we use Id as key and the instance as data
-    public AutoCompleteOption<int,MyEntity> SingleOptionField {get;set;}
+    public AutoCompleteOption<int,MyEntity> SingleOptionField = new (){
+        Id = 1,
+        SelectedLabel = "Option when selected",
+        DropdownLabel = "Option displayed in the dropdown",
+        Data = new MyEntity{
+            Id = 1,
+            Name = "Option 1"
+        }
+    };
 }
 ```
 

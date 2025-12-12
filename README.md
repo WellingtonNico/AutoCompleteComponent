@@ -96,6 +96,29 @@ Ex:
 }
 ```
 
+### What if you need a very customizable dropdown option or selected option?
+
+Let's suppose you need to display an image in the dropdown options for example.
+Well, in this case you can fully customize the rendered option using the fragments.
+The context of the selected item may vary depending on the needs of the component whether it is single of multiple so inspect the code to understand a little more.
+Ex:
+
+```cs
+<StaticSingleOption ...>
+    // here you can customize what is rendered when the item is selected
+    <SelectedItemTemplate Context="selected">
+        @selected.Item.Name
+    </SelectedItemTemplate>
+
+    // here you can customize what is rendered in the dropdown
+    <DropdownOptionTemplate Context="option">
+        <img src="@option.Data.ImageUrl"/>
+        <span>@option.Data.Name</span>
+    </DropdownOptionTemplate>
+
+</StaticSingleOption>
+```
+
 #### Some points
 
 - It is still not fully optional, so the load messages for example are in my language PT-BR, so for now you will need to search and replace.

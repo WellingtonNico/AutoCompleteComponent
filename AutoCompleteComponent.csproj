@@ -14,8 +14,8 @@
         <Description>Best autocomplete dropdown component for Blazor. Supports async and static
             search with single and multiple options with pagination.</Description>
         <PackageTags>blazor;autocomplete;dropdown;component;razor;async;search;pagination</PackageTags>
-        <PackageProjectUrl>https://github.com/wellington/AutoCompleteComponent</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/wellington/AutoCompleteComponent</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/WellingtonNico/AutoCompleteComponent</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/WellingtonNico/AutoCompleteComponent</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>

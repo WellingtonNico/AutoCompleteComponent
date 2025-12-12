@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "hash": "AutoCompleteComponent",
+  "source": "AutoCompleteComponent",
+  "basePath": "_content/AutoCompleteComponent",
+  "mode": "Default",
+  "manifestType": "Build",
+  "assets": [
+    {
+      "identity": "wwwroot/auto-complete.css",
+      "sourceId": "AutoCompleteComponent",
+      "sourcePath": "wwwroot/auto-complete.css",
+      "contentRoot": "$(MSBuildProjectDirectory)/",
+      "basePath": "_content/AutoCompleteComponent",
+      "relativePath": "lib/AutoComplete/auto-complete.css",
+      "assetKind": "All",
+      "assetMode": "All",
+      "copyToOutputDirectory": "Never",
+      "copyToPublishDirectory": "PreserveNewest"
+    },
+    {
+      "identity": "wwwroot/auto-complete.js",
+      "sourceId": "AutoCompleteComponent",
+      "sourcePath": "wwwroot/auto-complete.js",
+      "contentRoot": "$(MSBuildProjectDirectory)/",
+      "basePath": "_content/AutoCompleteComponent",
+      "relativePath": "lib/AutoComplete/auto-complete.js",
+      "assetKind": "All",
+      "assetMode": "All",
+      "copyToOutputDirectory": "Never",
+      "copyToPublishDirectory": "PreserveNewest"
+    }
+  ]
+}

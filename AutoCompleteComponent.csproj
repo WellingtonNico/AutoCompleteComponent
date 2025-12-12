@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>AutoComplete</RootNamespace>
+    
+    <!-- NuGet Package Settings -->
+    <PackageId>AutoCompleteComponent</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Wellington</Authors>
+    <Company>Wellington</Company>
+    <Description>Best autocomplete dropdown component for Blazor. Supports async and static search with single and multiple options with pagination.</Description>
+    <PackageTags>blazor;autocomplete;dropdown;component;razor;async;search;pagination</PackageTags>
+    <PackageProjectUrl>https://github.com/wellington/AutoCompleteComponent</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/wellington/AutoCompleteComponent</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Include README in package -->
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Blazor dependencies -->
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Static web assets are automatically included by Microsoft.NET.Sdk.Razor -->
+  </ItemGroup>
+
+</Project>

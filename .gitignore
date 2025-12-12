@@ -1,1 +1,16 @@
 .DS_Store
+
+## Build results
+bin/
+obj/
+*.nupkg
+*.snupkg
+
+## User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Visual Studio
+.vs/

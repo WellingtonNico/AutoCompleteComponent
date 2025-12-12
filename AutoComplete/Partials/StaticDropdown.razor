@@ -28,7 +28,8 @@
         class="autocomplete-dropdown-items flex-grow-1 overflow-y-auto mt-3 list-unstyled">
         @foreach (var item in currentAvailableOptions)
         {
-          <li class="autocomplete-dropdown-item p-2" role="button" @onclick="@(async () => await Instance.OnSelectOptionAsync(item))">
+          <li class="autocomplete-dropdown-item p-2" role="button"
+            @onclick="@(async () => await Instance.OnSelectOptionAsync(item))">
             @if (Instance.DropdownOptionTemplate != null)
             {
               @Instance.DropdownOptionTemplate(item)

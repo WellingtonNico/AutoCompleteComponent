@@ -30,7 +30,10 @@ Install-Package AutoCompleteComponent
 2. Reference the CSS and JS files in your `App.razor` or `_Layout.cshtml`:
 
 ```html
-<link href="_content/AutoCompleteComponent/lib/AutoComplete/auto-complete.css" rel="stylesheet" />
+<link
+  href="_content/AutoCompleteComponent/lib/AutoComplete/auto-complete.css"
+  rel="stylesheet"
+/>
 <script src="_content/AutoCompleteComponent/lib/AutoComplete/auto-complete.js"></script>
 ```
 
@@ -199,12 +202,14 @@ The package will be created in `bin/Release/AutoCompleteComponent.{version}.nupk
 Before publishing, you can test the package locally:
 
 1. Create a local NuGet source:
+
 ```bash
 # Add a local source (only once)
 dotnet nuget add source /Users/wellington/projetos/csharp/AutoCompleteComponent/bin/Release -n "Local"
 ```
 
 2. In your test project, add the package:
+
 ```bash
 dotnet add package AutoCompleteComponent --version 1.0.0 --source "Local"
 ```
@@ -214,6 +219,7 @@ dotnet add package AutoCompleteComponent --version 1.0.0 --source "Local"
 1. Get your API key from [NuGet.org](https://www.nuget.org/account/apikeys)
 
 2. Push the package:
+
 ```bash
 dotnet nuget push bin/Release/AutoCompleteComponent.1.0.0.nupkg --api-key YOUR_API_KEY --source https://api.nuget.org/v3/index.json
 ```
@@ -227,6 +233,7 @@ Update the version in `AutoCompleteComponent.csproj`:
 ```
 
 Follow [Semantic Versioning](https://semver.org/):
+
 - **Major**: Breaking changes
 - **Minor**: New features (backward compatible)
 - **Patch**: Bug fixes

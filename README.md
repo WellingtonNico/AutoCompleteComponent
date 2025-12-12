@@ -87,3 +87,7 @@ Ex:
     MyModel Model = new();
 }
 ```
+
+#### Some points
+
+- It is still not fully optional, so the load messages for example are in my language PT-BR, so for now you will need to search and replace.

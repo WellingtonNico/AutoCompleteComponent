@@ -2,6 +2,8 @@
 
 It supports async and static search with single and multiple options with pagination, you will have a very good level of freedom using it.
 
+[Here is a demo video](https://drive.google.com/file/d/18-nTNsw_jEpIBCbPc7z3tjWCJ3W-9LBb/view)
+
 ## How to install?
 
 ### Via NuGet Package (Recommended)

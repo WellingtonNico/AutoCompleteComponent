@@ -78,7 +78,7 @@ public class MyFormModel{
 
 By using `async` you will be able to query your data from external APIs or your repositories accessing you database directly, you can also enable pagination if you want.
 All you need is to have an `async` function that receives a `AutoCompleteSearchArgs` instance and returns `List<AutoCompleteOption<TKey, TData>>`.
-The pagination is enabled by default, you need to handle it in the function that loads the options, if yout stop returning results the pagination will stop, so keep returning data to keep the user scrolling down.
+The pagination is enabled by default, you need to handle it in the function that loads the options, if you stop returning results the pagination will stop, so keep returning data to keep the user scrolling down.
 
 ```cs
 <AsyncSingleAutoComplete
@@ -179,3 +179,5 @@ Ex:
     PageSize="20"
 />
 ```
+
+- By using the `AutoCompleteOption<TKey,TData>` in your models they can be easily cached to json and restored, very usefull for listing pages where you need to store the filters the user used in some url parameter. There is also a good benefit that you can have methods in the TData class if you want and access them very easily when user selects an option.

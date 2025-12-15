@@ -8,7 +8,7 @@
 
         <!-- NuGet Package Settings -->
         <PackageId>AutoCompleteComponent</PackageId>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
         <Authors>Wellington</Authors>
         <Company>Wellington</Company>
         <Description>Best autocomplete dropdown component for Blazor. Supports async and static
@@ -22,6 +22,8 @@
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <EnableRazorComponents>true</EnableRazorComponents>
+        <RazorComponentSupport>true</RazorComponentSupport>
     </PropertyGroup>
 
     <ItemGroup>

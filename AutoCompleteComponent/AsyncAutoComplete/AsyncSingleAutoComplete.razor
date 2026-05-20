@@ -4,9 +4,9 @@
 @typeparam TData
 @inherits AsyncAutoCompleteBase<AutoCompleteOption<TId, TData>, TId, TData>
 
-<div @ref="@ContainerRef"
-     class="form-select @(CssClass) autocomplete-container @(Disabled ? "disabled" : "") @(IsDropdownVisible ? "focused" : "") @(ShouldOpenUpward ? "open-upward" : "open-downward")"
-     disabled="@Disabled">
+<div
+  class="form-select @(CssClass) autocomplete-container @(Disabled ? "disabled" : "") @(IsDropdownVisible ? "focused" : "") @(ShouldOpenUpward ? "open-upward" : "open-downward")"
+  disabled="@Disabled" @ref="@ContainerRef" @onclick="@ShowDropdownAsync">
   <div class="d-flex align-items-center h-100 gap-2" @onclick="@ShowDropdownAsync">
 
     @* se tiver um valor selecionado exibe e também um botão de limpar *@

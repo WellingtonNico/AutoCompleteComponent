@@ -101,7 +101,15 @@ public abstract class StaticAutoCompleteBase<TValue, TId, TData> : InputBase<TVa
         }
     }
 
-    public virtual async Task ShowDropdown()
+    public async Task OpenDropdownFirstTimeWithContainerClickAsync()
+    {
+        if (!IsDropdownVisible)
+        {
+            await ShowDropdownAsync();
+        }
+    }
+
+    public virtual async Task ShowDropdownAsync()
     {
         if (Disabled)
             return;

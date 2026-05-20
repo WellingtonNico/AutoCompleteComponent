@@ -5,10 +5,10 @@
 @inherits StaticAutoCompleteBase<List<AutoCompleteOption<TId, TData>>, TId, TData>
 
 
-<div @ref="@ContainerRef"
-     class="form-select autocomplete-container @(CssClass) @(Disabled ? "disabled" : "") @(IsDropdownVisible ? "focused" : "") @(ShouldOpenUpward ? "open-upward" : "open-downward")"
-     disabled="@Disabled">
-  <div class="d-flex align-items-center h-100" @onclick="@ShowDropdown">
+<div
+  class="form-select autocomplete-container @(CssClass) @(Disabled ? "disabled" : "") @(IsDropdownVisible ? "focused" : "") @(ShouldOpenUpward ? "open-upward" : "open-downward")"
+  disabled="@Disabled" @ref="@ContainerRef" @onclick="@OpenDropdownFirstTimeWithContainerClickAsync">
+  <div class="d-flex align-items-center h-100">
 
     @* se tiver um valor selecionado exibe e também um botão de limpar *@
     @if (Value?.Any() == true)
@@ -53,7 +53,7 @@
     @* caixa de texto reponsável por abrir a pesquisa, visível somente quando o dropdown não estiver aberto *@
     @if (!IsDropdownVisible)
     {
-      <input type="text" class="autocomplete-toggle-input" @onfocus="@ShowDropdown" />
+      <input type="text" class="autocomplete-toggle-input" @onfocus="@ShowDropdownAsync" />
     }
   </div>
 

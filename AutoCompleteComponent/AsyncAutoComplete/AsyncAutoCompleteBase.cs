@@ -159,6 +159,14 @@ public abstract class AsyncAutoCompleteBase<TValue, TId, TData>
         }
     }
 
+    public async Task OpenDropdownFirstTimeWithContainerClickAsync()
+    {
+        if (!IsDropdownVisible)
+        {
+            await ShowDropdownAsync();
+        }
+    }
+
     public virtual async Task ShowDropdownAsync()
     {
         if (Disabled)

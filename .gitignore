@@ -1,4 +1,3 @@
-.DS_Store
 
 ## Build results
 bin/
@@ -11,6 +10,10 @@ obj/
 *.user
 *.userosscache
 *.sln.docstates
+appSettings.json
 
 ## Visual Studio
 .vs/
+*.tmp
+*.lscache
+.DS_Store

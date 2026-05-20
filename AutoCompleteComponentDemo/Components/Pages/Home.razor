@@ -1,0 +1,25 @@
+﻿@page "/"
+@rendermode InteractiveServer
+
+<PageTitle>Home</PageTitle>
+
+<h1>AutoCompleteComponent Demo!</h1>
+
+<div class="d-flex flex-column gap-5 mt-5">
+  <div class="form-group">
+    <label class="form-label">Static Options Single Choice from string list</label>
+    <StaticSingleAutoComplete Options="@StringOptions.ToAutoCompleteOptions()" @bind-Value="@SelectedStringValue" />
+  </div>
+  <div class="form-group">
+    <label class="form-label">Static Options Multi Choice from enum</label>
+    <StaticMultiAutoComplete Options="@EnumExample.Option1.ToAutoCompleteOptions()" @bind-Value="@SelectedEnumValues" />
+  </div>
+  <div class="form-group">
+    <label class="form-label">Async Options Single Choice from list of SampleData and with custom dropdown label</label>
+    <AsyncSingleAutoComplete OnSearch="@LoadSampleDataOptionsAsync" @bind-Value="@SelectedSampleDataValue">
+      <DropdownOptionTemplate Context="option">
+        @option.Data.GetCustomDropDownLabel()
+      </DropdownOptionTemplate>
+    </AsyncSingleAutoComplete>
+  </div>
+</div>

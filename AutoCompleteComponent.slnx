@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="AutoCompleteComponent/AutoCompleteComponent.csproj" />
+  <Project Path="AutoCompleteComponentDemo/AutoCompleteComponentDemo.csproj" />
+</Solution>

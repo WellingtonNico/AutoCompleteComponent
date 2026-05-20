@@ -30,6 +30,7 @@
         @foreach (var item in currentAvailableOptions)
         {
           <li class="autocomplete-dropdown-item p-2" role="button"
+              @onclick:stopPropagation="true"
               @onclick="@(async () => await Instance.OnSelectOptionAsync(item))">
             @if (Instance.DropdownOptionTemplate != null)
             {

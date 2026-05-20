@@ -20,7 +20,7 @@ public abstract class StaticAutoCompleteBase<TValue, TId, TData> : InputBase<TVa
     public string NoResultsMessage { get; set; } = "Nenhum resultado encontrado";
 
     [Parameter]
-    public bool CloseDropdownOnSelect { get; set; } = true;
+    public bool CloseDropdownOnSelect { get; set; } = false;
 
     [Parameter]
     public int MinLength { get; set; } = 0;

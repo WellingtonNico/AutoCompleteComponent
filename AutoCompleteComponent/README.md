@@ -142,7 +142,7 @@ Ex:
 <StaticSingleOption ...>
     // here you can customize what is rendered when the item is selected
     <SelectedItemTemplate Context="selected">
-        @selected.Item.Name
+        @selected.Data.Name
     </SelectedItemTemplate>
 
     // here you can customize what is rendered in the dropdown

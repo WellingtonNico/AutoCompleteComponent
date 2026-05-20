@@ -1,9 +1,9 @@
 ﻿@page "/"
 @rendermode InteractiveServer
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Auto Complete Component Home</PageTitle>
 
-<h1>AutoCompleteComponent Demo!</h1>
+<h1>Demo!</h1>
 
 <div class="d-flex flex-column gap-5 mt-5">
   <div class="form-group">
@@ -17,6 +17,9 @@
   <div class="form-group">
     <label class="form-label">Async Options Single Choice from list of SampleData and with custom dropdown label</label>
     <AsyncSingleAutoComplete OnSearch="@LoadSampleDataOptionsAsync" @bind-Value="@SelectedSampleDataValue">
+      <SelectedItemTemplate Context="selectedOption">
+        @selectedOption.Data.GetCustomSelectedLabel()
+      </SelectedItemTemplate>
       <DropdownOptionTemplate Context="option">
         @option.Data.GetCustomDropDownLabel()
       </DropdownOptionTemplate>

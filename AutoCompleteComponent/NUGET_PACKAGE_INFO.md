@@ -47,7 +47,7 @@ dotnet pack -c Release
 ### Publish to NuGet.org
 
 ```bash
-dotnet nuget push bin/Release/AutoCompleteComponent.1.0.0.nupkg --api-key YOUR_API_KEY --source https://api.nuget.org/v3/index.json
+dotnet nuget push bin/Release/AutoCompleteComponent.1.0.1.nupkg --api-key YOUR_API_KEY --source https://api.nuget.org/v3/index.json
 ```
 
 ## Next Steps

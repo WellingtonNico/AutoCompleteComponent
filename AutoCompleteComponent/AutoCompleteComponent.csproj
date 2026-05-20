@@ -8,7 +8,7 @@
 
         <!-- NuGet Package Settings -->
         <PackageId>AutoCompleteComponent</PackageId>
-        <Version>1.0.1</Version>
+        <Version>1.0.2</Version>
         <Authors>Wellington</Authors>
         <Company>Wellington</Company>
         <Description>Best autocomplete dropdown component for Blazor. Supports async and static

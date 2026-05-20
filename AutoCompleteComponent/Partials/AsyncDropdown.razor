@@ -8,7 +8,7 @@
   public AsyncAutoCompleteBase<TValue, TId, TData> Instance { get; set; }
 }
 
-<div class="autocomplete-dropdown-wrapper d-flex flex-column">
+<div class="autocomplete-dropdown-wrapper d-flex flex-column" @ref="@Instance.DropdownWrapperRef">
   <div class="autocomplete-dropdown d-flex flex-column p-2 border bg-body rounded-2"
        @onmousemove="@Instance.OnMouseMoveOnDropdown" @onmouseleave="@Instance.OnMouseLeaveDropdown">
 

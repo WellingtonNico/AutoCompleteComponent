@@ -21,8 +21,15 @@
   z-index: 99999;
   width: calc(100% + 2px) !important;
   height: 300px !important;
+  cursor: default;
+  pointer-events: none /* remove os eventos do wrapper*/;
   left: -1px;
   right: 0;
+}
+
+/* mantém os eventos dos elementos filhos do wrapper */
+.autocomplete-dropdown-wrapper * {
+  pointer-events: auto;
 }
 
 /* limita o dropdown */
